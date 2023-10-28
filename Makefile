@@ -2,11 +2,14 @@
 init:
 	make clean
 	docker compose build
-	docker compose run --rm dev pnpm install --frozen-lockfile
 
 .PHONY: clean
 clean:
 	docker compose down --rmi all --volumes --remove-orphans
+
+.PHONY: install
+install:
+	rtx install && pnpm install && pdm install
 
 .PHONY: dev
 dev:

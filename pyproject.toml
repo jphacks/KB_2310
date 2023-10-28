@@ -55,6 +55,14 @@ filter_files = true
 line-length = 130
 include = '\.pyi?$'
 
+[tool.flake8]
+max-line-length = 130
+exclude = 'venv,.git,__pycache__,__init__.py,dev'
+ignore = [
+  "B008",
+  "W503"
+]
+
 [tool.ruff]
 select = [
     "E", # pycodestyle errors
