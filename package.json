@@ -16,8 +16,8 @@
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "fastapi-dev": "pdm install && python3 -m uvicorn api.index:app --reload",
-    "next-dev": "next dev",
+    "fastapi-dev": "pdm install && pdm run dev",
+    "next-dev": "pnpm install && next dev",
     "dev": "concurrently \"npm run next-dev\" \"npm run fastapi-dev\"",
     "build": "next build",
     "start": "next start",
