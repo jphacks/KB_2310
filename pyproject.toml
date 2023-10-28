@@ -1,0 +1,14 @@
+[project]
+name = "KB_2310"
+dependencies = [
+    "fastapi==0.100.1",
+    "uvicorn[standard]==0.23.2",
+]
+requires-python = ">=3.12"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
