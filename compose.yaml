@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/workspaces/cached
+      - rtx_data:/workspaces/rtx
+      - rtx_target:/workspaces/target
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
+
+volumes:
+  rtx_data:
+  rtx_target:

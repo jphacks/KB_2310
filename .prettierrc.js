@@ -30,9 +30,7 @@ const config = {
     new URL("tailwind.config.js", import.meta.url),
     ),
   importOrder: [
-    "^(react/(.*)$)|^(react$)|^(react-native(.*)$)",
     "^(next/(.*)$)|^(next$)",
-    "^(expo(.*)$)|^(expo$)",
     "<THIRD_PARTY_MODULES>",
     "^~/",
     "^[../]",

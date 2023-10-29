@@ -17,11 +17,12 @@ dependencies = [
     "casbin>=1.33.0",
 ]
 
-[project.optional-dependencies]
-jwt = [
-    "python-jose==3.3.0",
+[tool.pdm.dev-dependencies]
+lint = [
+    "flake8>=6.1.0",
+    "black>=23.10.1",
+    "isort>=5.12.0"
 ]
-redis = ["redis>=4.2.0"]
 test = [
     "uvicorn[standard] >=0.19.0,<1.0",
     "pytest >=6.2.4",
@@ -35,6 +36,12 @@ test = [
     "httpx>=0.23.3",
 ]
 
+[project.optional-dependencies]
+jwt = [
+    "python-jose==3.3.0",
+]
+redis = ["redis>=4.2.0"]
+
 # pytest
 [tool.pytest.ini_options]
 minversion = "6.0"
@@ -46,6 +53,7 @@ asyncio_mode = "auto"
 filterwarnings = [
     "ignore::RuntimeWarning",
 ]
+
 [tool.isort]
 profile = "black"
 atomic = true
@@ -87,4 +95,11 @@ line-length = 130
 
 [tool.pdm.scripts]
 dev = "uvicorn api.index:app --reload"
-test = "pytest"
+black = "black ."
+isort = "isort ."
+flake8 = "flake8 --exit-zero ."
+mypy = "mypy --show-column-numbers ."
+test = "pytest tests --cov=app --cov-report=term --cov-report=xml"
+format = { composite = ["black", "isort"] }
+lint = { composite = ["flake8", "mypy"] }
+check = { composite = ["format", "lint", "test"] }

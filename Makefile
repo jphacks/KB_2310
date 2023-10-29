@@ -9,7 +9,7 @@ clean:
 
 .PHONY: install
 install:
-	rtx install && pnpm install && pdm install
+	rtx install -y && pnpm install && pdm install
 
 .PHONY: dev
 dev:

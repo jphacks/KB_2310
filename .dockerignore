@@ -1,0 +1,6 @@
+.git
+.DS_Store
+.next
+.pdm-build
+.venv
+.node_modules

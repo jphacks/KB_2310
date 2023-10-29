@@ -1,5 +1,19 @@
+#:schema ./schema/rtx.json
 [tools]
-python = "3.10.11"
-pdm = 'latest'
 nodejs = '18.18.2'
 pnpm = 'latest'
+python = '3.10.11'
+#pdm = 'latest'
+
+[settings]
+legacy_version_file = true
+always_keep_download = false
+always_keep_install = false
+plugin_autoupdate_last_check_duration = 86400
+verbose = true
+asdf_compat = true
+jobs = 10
+raw = false
+disable_default_shorthands = false
+experimental = true
+log_level = 'error'
