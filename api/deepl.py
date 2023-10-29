@@ -1,6 +1,6 @@
-import requests
+import requests ,os
 
-API_KEY = 'b2e42344-707b-608c-f30d-a3dd4646b9d1:fx' # 自身の API キーを指定
+API_KEY = os.getenv("DEEPL") # 自身の API キーを指定
 
 def input(text):
   source_lang = 'JA'

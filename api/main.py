@@ -18,7 +18,7 @@ data = [ #フロントからの想定データ
 @app.get("/")
 async def hello():
     return {"message" : "Hello,World"}
-
+  
 @app.post("/api/interview")
 async def interview(data: list):
   result = inter.read(data)
@@ -26,8 +26,7 @@ async def interview(data: list):
 
 @app.post("/api/presentation")
 async def presentation():
-  result = inter.read(data)
-  return {"message" : result}
-
+  return {"message" : "presentationページです。"}
+  
 #起動方法
 # uvicorn main:app --reload
