@@ -12,6 +12,9 @@ module.exports = {
       },
       fontFamily:{
         sans: ["var(--font-sans)", ...fontFamily.sans],
+      },
+      boxShadow: {
+        'inner-box': 'inset 0px 0px 24px 0px rgba(0, 0, 0, 0.25)'
       }
     },
   },
