@@ -1,14 +1,15 @@
 FROM rust
 
-WORKDIR /workspaces/cached
-
 # Use another target directory to avoid conflicts with the host target directory
-RUN mkdir /workspaces/target
-ENV CARGO_TARGET_DIR=/workspaces/target \
-    RTX_DATA_DIR=/workspaces/rtx \
-    RTX_CACHE_DIR=$RTX_DATA_DIR/cache
+ENV PARENT=/workspaces \
+    CARGO_TARGET_DIR=$PARENT/cargo \
+    RTX_DATA_DIR=$PARENT/rtx \
+    RTX_CACHE_DIR=$RTX_DATA_DIR/cache \
+    PNPM_HOME=$PARENT/pnpm
 
-COPY .rtx.toml pyproject.toml pdm.lock .pdm-python package.json pnpm-lock.yaml .npmrc .
+WORKDIR $PARENT/cached
+
+COPY .rtx.toml pyproject.toml pdm.lock .pdm-python package.json pnpm-lock.yaml .npmrc ./
 
 # Install dependencies
 RUN export DEBIAN_FRONTEND=noninteractive \
@@ -16,9 +17,13 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
     bash make dirmngr gpg curl gawk \
     && apt-get clean \
+    && mkdir -p $CARGO_TARGET_DIR $PNPM_HOME \
     && cargo install rtx-cli \
     && echo 'eval "$(rtx activate bash)"' >> ~/.bashrc \
     && RTX_DEBUG=1 rtx install -y
+
+# Mark directories as volumes
+VOLUME ["$RTX_DATA_DIR", "$CARGO_TARGET_DIR", "$PNPM_HOME"]
 
 ENTRYPOINT [ "/bin/bash"]
 # CMD ["pnpm", "dev"]
