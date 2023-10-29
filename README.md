@@ -12,7 +12,9 @@
 
 ### 製品説明（具体的な製品の説明）
 
-- プレゼンテーションや面接練習などを一人で判断や作業が難しいものに対してAIがサポートする。chatGPTなど複数のAIに問い（API）かけて中間職（AI）を挟むことによって複数のAIから帰ってきた返答をまとめて見やすくわかりやすい用にユーザに改善案andダメ出しをしてくれるサポート系AI
+- プレゼンテーションや面接練習などを一人で判断や作業が難しいものに対してAIがサポートする。
+chatGPTなど複数のAIに問い（API）かけて中間職（AI）を挟むことによって、
+複数のAIから帰ってきた返答をまとめて見やすくわかりやすいようにユーザに改善案＆ダメ出しをしてくれるサポート系AI
 
 ### 特長
 
@@ -33,6 +35,7 @@
 ### 今後の展望
 
 - プレゼンなどの資料は現在PDFだけなので今後は動画やその他の拡張子も取り入れたい
+- デザインをもう少しこだわりたい
 
 ### 注力したこと（こだわり等）
 
@@ -40,33 +43,22 @@
 
 ## 開発技術
 
-- Next.js、FASTAPI、python、WEBRTC、Tailwindow、chatGBT, palm, goolab, deepl, tensowflow
+- Next.js、FASTAPI、python、WEBRTC、Tailwindow、chatGBT, palm, goolab, deepl, tensowflow, google-cloud-vision, google-cloud-vision, google-cloud-speech /etc..
 
 ### 活用した技術
 
 #### API・データ
 
-- deepl, palm, 
--
+- deepl, palm, chatGBT, goolab, google-cloud-vision, google-cloud-vision, google-cloud-speech
 
 #### フレームワーク・ライブラリ・モジュール
 
-- nextjs
-- fastapi
+- nextjs, fastapi
 
 #### デバイス
 
 - web
--
 
 ### 独自技術
 
-#### ハッカソンで開発した独自機能・技術
-
-- 独自で開発したものの内容をこちらに記載してください
-- 特に力を入れた部分をファイルリンク、または commit_id を記載してください。
-
-#### 製品に取り入れた研究内容（データ・ソフトウェアなど）（※アカデミック部門の場合のみ提出必須）
-
--
--
+- このサービス！！！
