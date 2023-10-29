@@ -18,7 +18,7 @@ RUN export DEBIAN_FRONTEND="noninteractive" \
     && apt-get update \
     && apt-get -y install --no-install-recommends \
     bash make git dirmngr gpg curl gawk \
-    && mkdir -p "$CARGO_TARGET_DIR" "$PNPM_HOME" \
+    && mkdir -p "$CARGO_TARGET_DIR" "$PNPM_HOME" "$PDM_HOME" \
     && cargo install rtx-cli \
     && echo 'eval "$(rtx activate bash)"' >> ~/.bashrc \
     && RTX_DEBUG=1 rtx install -y \
