@@ -1,4 +1,4 @@
-import requests, os
+import requests, os, config
 
 def palm(text):
     headers = {
@@ -6,7 +6,7 @@ def palm(text):
     }
 
     params = {
-        'key': os.getenv("PALM"),
+        'key': config.PALM,
     }
 
     json_data = {

@@ -1,11 +1,11 @@
-import requests, os
+import requests, os, config
 
 headers = {
     'Content-type': 'application/json',
 }
 
 json_data = {
-    'app_id': os.getenv("GOO"),
+    'app_id': config.GOO,
     'sentence': '日本語解析',
 }
 

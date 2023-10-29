@@ -1,6 +1,4 @@
-import requests ,os
-
-API_KEY = os.getenv("DEEPL") # 自身の API キーを指定
+import requests, os, config
 
 def input(text):
   source_lang = 'JA'
@@ -8,7 +6,7 @@ def input(text):
 
   # パラメータの指定
   params = {
-              'auth_key' : API_KEY,
+              'auth_key' : config.DEEPL,
               'text' : text,
               'source_lang' : source_lang, # 翻訳対象の言語
               "target_lang": target_lang  # 翻訳後の言語
@@ -27,7 +25,7 @@ def output(text):
 
   # パラメータの指定
   params = {
-              'auth_key' : API_KEY,
+              'auth_key' : config.DEEPL,
               'text' : text,
               'source_lang' : source_lang, # 翻訳対象の言語
               "target_lang": target_lang  # 翻訳後の言語

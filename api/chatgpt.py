@@ -1,8 +1,8 @@
 
-import openai, os
+import openai, os, config
 
 def chatgpt(text):
-    openai.api_key = os.getenv('CHATGPT')
+    openai.api_key = config.CHATGPT
     res = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
@@ -20,7 +20,7 @@ def chatgpt(text):
     return res["choices"][0]["message"]["content"]
 
 def union(chatgpt, palm):
-    openai.api_key = os.getenv('CHATGPT')
+    openai.api_key = config.CHATGPT
     res = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
